@@ -29,3 +29,12 @@ function_chosen = operations[user_choice]
 result = function_chosen(num1, num2)
 
 print(f"{num1} {user_choice} {num2} = {result}")
+
+new_operation = input("Choose another operation: ")
+
+num3 = int(input("Enter another number: "))
+
+new_operation_chosen = operations[new_operation]
+new_result = new_operation_chosen(result, num3)
+
+print(f"{result} {new_operation} {num3} = {new_result}")
