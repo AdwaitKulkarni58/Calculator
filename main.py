@@ -23,18 +23,24 @@ num2 = int(input("Enter the second number: "))
 for operation in operations:
     print(operation)
 
-user_choice = input("Choose an operation from the above options: ")
+while True:
+    user_choice = input("Choose an operation from the above options: ")
 
-function_chosen = operations[user_choice]
-result = function_chosen(num1, num2)
+    function_chosen = operations[user_choice]
+    result = function_chosen(num1, num2)
+    
+    print(f"{num1} {user_choice} {num2} = {result}")
 
-print(f"{num1} {user_choice} {num2} = {result}")
+    new_operation = input("Choose another operation: ")
 
-new_operation = input("Choose another operation: ")
+    num3 = int(input("Enter another number: "))
 
-num3 = int(input("Enter another number: "))
+    new_operation_chosen = operations[new_operation]
+    new_result = new_operation_chosen(result, num3)
 
-new_operation_chosen = operations[new_operation]
-new_result = new_operation_chosen(result, num3)
-
-print(f"{result} {new_operation} {num3} = {new_result}")
+    print(f"{result} {new_operation} {num3} = {new_result}")
+    calculate_again = input(f"Enter y to continue with {new_result}, or 'n' to stop calculation: ")
+    if (calculate_again == "n"):
+        break
+    else:
+        continue
